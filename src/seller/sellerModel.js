@@ -10,7 +10,7 @@ Seller.init(
       defaultValue: "",
       unique: true,
     },
-    name: {
+    fullName: {
       type: DataTypes.STRING,
       defaultValue: "",
     },

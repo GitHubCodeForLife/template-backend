@@ -114,10 +114,10 @@ class ProductService extends BaseSevice {
       throw error;
     }
   }
-  async getAllProducts(user) {
+  async getAllProducts() {
     try {
       const allProducts = await this.model.findAll({
-        where: { ownerId: user.id },
+        where: { isPublished: true },
       });
       return allProducts;
     } catch (error) {

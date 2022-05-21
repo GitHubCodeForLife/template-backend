@@ -2,6 +2,7 @@ import BaseSevice from "../../base/BaseService";
 import autoBind from "auto-bind";
 import HttpResponse from "../../helper/HttpResponse";
 import Seller from "./sellerModel";
+import Product from "../product/productModel";
 
 class SellerService extends BaseSevice {
   constructor() {
@@ -15,7 +16,7 @@ class SellerService extends BaseSevice {
           email: data.email,
           password: data.password,
           phone: data.phone,
-          name: data.name,
+          fullName: data.name,
           mailSecretCode: data.code,
           image: data.image,
           registerType: "registered",
@@ -37,6 +38,16 @@ class SellerService extends BaseSevice {
     } catch (error) {
       console.error(error);
       throw error;
+    }
+  }
+  async getAllProducts(user) {
+    try {
+      const allProducts = await Product.findAll({
+        where: { ownerId: user.id },
+      });
+      return allProducts;
+    } catch (error) {
+      console.error(error);
     }
   }
 }

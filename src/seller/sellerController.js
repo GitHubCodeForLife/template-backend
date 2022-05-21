@@ -122,6 +122,16 @@ class SellerController extends BaseController {
       console.log(error);
     }
   }
+  async getAllProduct(req, res, next) {
+    try {
+      const result = await this.service.getAllProducts(req.user);
+
+      return res.status(200).json(result);
+    } catch (e) {
+      next(e);
+    }
+  }
+  
 }
 
 export default new SellerController();

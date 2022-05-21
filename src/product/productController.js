@@ -27,7 +27,7 @@ class ProductController extends BaseController {
   }
   async getAll(req, res, next) {
     try {
-      const result = await this.service.getAllProducts(req.user);
+      const result = await this.service.getAllProducts();
 
       return res.status(200).json(result);
     } catch (e) {

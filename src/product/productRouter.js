@@ -3,7 +3,7 @@ const router = express.Router();
 import ProductController from "./productController";
 import { authenticateByJwt } from "../auth/auth.services";
 
-router.get("/", authenticateByJwt, ProductController.getAll);
+router.get("/", ProductController.getAll);
 router.get("/test", authenticateByJwt, ProductController.test);
 router.get("/:id", authenticateByJwt, ProductController.get);
 router.post("/", authenticateByJwt, ProductController.insert);
