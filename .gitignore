@@ -1,4 +1,7 @@
 node_modules
 dist
 .idea
-.env
+.env.demo
+mysql.txt
+build
+mochawesome-report

@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 // const autoBind = require("auto-bind");
 import autoBind from "auto-bind";
 
@@ -10,7 +11,7 @@ class BaseController {
   async getAll(req, res, next) {
     try {
       //   console.log(this);
-      console.log(req.query);
+      // console.log(req.query);
       const response = await this.service.getAll(req.query);
       return res.status(response.statusCode).json(response);
     } catch (e) {
